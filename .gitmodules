@@ -1,0 +1,3 @@
+[submodule "DissertationReport"]
+	path = DissertationReport
+	url = git@framagit.org:ant0ine/DissertationReport.git
