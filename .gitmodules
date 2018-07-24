@@ -1,3 +1,6 @@
 [submodule "DissertationReport"]
 	path = DissertationReport
 	url = git@framagit.org:ant0ine/DissertationReport.git
+[submodule "DissertationROS_ws"]
+	path = DissertationROS_ws
+	url = git@framagit.org:ant0ine/DissertationROS_ws.git
