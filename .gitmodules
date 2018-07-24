@@ -4,3 +4,6 @@
 [submodule "DissertationROS_ws"]
 	path = DissertationROS_ws
 	url = git@framagit.org:ant0ine/DissertationROS_ws.git
+[submodule "DissertationBlockchainInterface"]
+	path = DissertationBlockchainInterface
+	url = git@framagit.org:ant0ine/DissertationBlockchainInterface.git
