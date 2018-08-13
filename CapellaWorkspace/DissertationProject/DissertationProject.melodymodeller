@@ -46,7 +46,7 @@
         <ownedOperationalActivities xsi:type="org.polarsys.capella.core.data.oa:OperationalActivity"
             id="6c235e41-e362-43fe-b40e-3f3b088bc4bd" name="Root Operational Activity">
           <ownedFunctionalChains xsi:type="org.polarsys.capella.core.data.oa:OperationalProcess"
-              id="e687887b-99aa-4c1a-a2bf-db4434e6149a" name="Open Market Economy">
+              id="e687887b-99aa-4c1a-a2bf-db4434e6149a" name="Open Market Economy to delete">
             <ownedFunctionalChainInvolvements xsi:type="org.polarsys.capella.core.data.fa:FunctionalChainInvolvement"
                 id="0232b8ab-d6d5-43b1-8192-75d919259e18" involved="#cdd09b6f-a3c5-490b-81ab-08a97fea92c0"
                 nextFunctionalChainInvolvements="#53b063f9-c86a-482c-a3b1-36a576ecf3b3"/>
@@ -57,6 +57,17 @@
                 id="bdab80db-af6e-464b-a2a8-cfbd42183f66" involved="#42f3efa2-5ec0-4751-87ef-ad2e623fe0e8"/>
             <ownedFunctionalChainInvolvements xsi:type="org.polarsys.capella.core.data.fa:FunctionalChainReference"
                 id="1a62424b-393f-41b9-9b1d-c3998425a331"/>
+          </ownedFunctionalChains>
+          <ownedFunctionalChains xsi:type="org.polarsys.capella.core.data.oa:OperationalProcess"
+              id="75113050-72f2-4229-8c56-1a6c4acf8ba9" name="Open Market Economy">
+            <ownedFunctionalChainInvolvements xsi:type="org.polarsys.capella.core.data.fa:FunctionalChainInvolvement"
+                id="67a9988a-d62d-4baa-8894-451630829fbe" involved="#cdd09b6f-a3c5-490b-81ab-08a97fea92c0"
+                nextFunctionalChainInvolvements="#1c9bf6aa-859d-449b-96ff-5bb8d221575b"/>
+            <ownedFunctionalChainInvolvements xsi:type="org.polarsys.capella.core.data.fa:FunctionalChainInvolvement"
+                id="1c9bf6aa-859d-449b-96ff-5bb8d221575b" involved="#67b7829f-8f99-42e5-a100-f3362c294453"
+                nextFunctionalChainInvolvements="#582d0248-7bda-4f0a-9212-62fc289a1ab0"/>
+            <ownedFunctionalChainInvolvements xsi:type="org.polarsys.capella.core.data.fa:FunctionalChainInvolvement"
+                id="582d0248-7bda-4f0a-9212-62fc289a1ab0" involved="#42f3efa2-5ec0-4751-87ef-ad2e623fe0e8"/>
           </ownedFunctionalChains>
           <ownedFunctions xsi:type="org.polarsys.capella.core.data.oa:OperationalActivity"
               id="17f450a5-9394-4ed4-91d1-155d33a8627a" name="input mission"/>
@@ -581,7 +592,8 @@
                   sourceElement="#51cdffce-96a1-4ca3-b6c7-f4eb403e05fb"/>
             </ownedFunctions>
             <ownedFunctions xsi:type="org.polarsys.capella.core.data.ctx:SystemFunction"
-                id="30278827-190b-4e87-a259-4ec4aaf48593" name="Split 5" kind="SPLIT">
+                id="30278827-190b-4e87-a259-4ec4aaf48593" name="Check cost/benefit ratio of task"
+                kind="SPLIT">
               <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
                   id="e5581a29-b924-4446-b1c4-8c33cdc8aaf8" name="FIP 2"/>
               <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
@@ -1907,51 +1919,6 @@
           <ownedFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"
               id="3961ce29-de65-4280-bf4b-e02bdba018aa" name="DApp">
             <ownedFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"
-                id="71b70694-2d6b-4895-bbe3-1f21611ba517" name="create token">
-              <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
-                  id="4d093f94-b825-4ed4-8827-914508fc230b" name="FIP 1">
-                <ownedPortRealizations xsi:type="org.polarsys.capella.core.data.information:PortRealization"
-                    id="01b9a137-6892-415c-8ee7-ff091a633a74" targetElement="#a603efd5-cf1b-4ee4-b71a-471709393bec"
-                    sourceElement="#4d093f94-b825-4ed4-8827-914508fc230b"/>
-              </inputs>
-              <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
-                  id="e004ed90-c5d0-452c-bba7-dae661335564" name="FOP 2"/>
-              <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
-                  id="b9e3c0de-2da7-403f-a781-1bcaba719c98" name="FOP 3"/>
-              <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
-                  id="5c75b505-878c-4e75-82c7-16e735d8b454" targetElement="#c47b0629-6a22-457c-a88f-b2b479d43999"
-                  sourceElement="#71b70694-2d6b-4895-bbe3-1f21611ba517"/>
-            </ownedFunctions>
-            <ownedFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"
-                id="c1fd9118-37fe-443f-86a9-08d08fa46351" name="record transfer of task"
-                summary="transfer owner of token">
-              <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
-                  id="3901dd6a-df00-47ef-ba11-6c8ecceeb7e4" name="FIP 2"/>
-              <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
-                  id="75c31b0d-f373-4436-bfcd-8abc0668dc6c" name="FOP 1"/>
-              <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
-                  id="6f77dcb9-25ea-421a-9e3f-528392761b71" name="FOP 2"/>
-              <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
-                  id="d0c3bde2-e09a-4575-b62c-287ddaad3f3a" targetElement="#722a5d43-cad6-418f-91cf-2bc7184cf484"
-                  sourceElement="#c1fd9118-37fe-443f-86a9-08d08fa46351"/>
-            </ownedFunctions>
-            <ownedFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"
-                id="85476ea5-1d03-4313-ac05-f4abbf6a4e1c" name="mark task as done">
-              <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
-                  id="350d4a0d-2d4a-4cf2-87be-3c04b985ed48" name="insave data">
-                <ownedPortRealizations xsi:type="org.polarsys.capella.core.data.information:PortRealization"
-                    id="880ec46b-97dd-4913-b151-68ca7bf40b20" targetElement="#0f08c24d-47e8-4f57-ab64-661f6a14affe"
-                    sourceElement="#350d4a0d-2d4a-4cf2-87be-3c04b985ed48"/>
-              </inputs>
-              <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
-                  id="97dffbde-7b5d-47aa-a2d3-4c77d166d13a" name="FOP 1"/>
-              <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
-                  id="80913414-0d99-4232-9b2c-ad061994c0e7" name="FOP 2"/>
-              <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
-                  id="070ff4f4-7c8f-40e6-81d0-f90467776ced" targetElement="#4fe5973b-2f8f-4142-8e04-6caa4614bcbf"
-                  sourceElement="#85476ea5-1d03-4313-ac05-f4abbf6a4e1c"/>
-            </ownedFunctions>
-            <ownedFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"
                 id="23907d84-79d5-4e66-943f-5c9fadac2820" name="display updates">
               <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
                   id="cc3d856f-83d1-4a4d-80a5-df76b503f553" name="FIP 1"/>
@@ -1973,22 +1940,52 @@
                   sourceElement="#35d1db72-cf2a-4388-b1d3-821aa8544690"/>
             </ownedFunctions>
             <ownedFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"
-                id="0674b534-1217-4abb-8700-ee884d4e86c5" name="communicate with ROS system"/>
+                id="0674b534-1217-4abb-8700-ee884d4e86c5" name="communicate with ROS system">
+              <ownedFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"
+                  id="85476ea5-1d03-4313-ac05-f4abbf6a4e1c" name="mark task as done">
+                <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
+                    id="350d4a0d-2d4a-4cf2-87be-3c04b985ed48" name="insave data">
+                  <ownedPortRealizations xsi:type="org.polarsys.capella.core.data.information:PortRealization"
+                      id="880ec46b-97dd-4913-b151-68ca7bf40b20" targetElement="#0f08c24d-47e8-4f57-ab64-661f6a14affe"
+                      sourceElement="#350d4a0d-2d4a-4cf2-87be-3c04b985ed48"/>
+                </inputs>
+                <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
+                    id="97dffbde-7b5d-47aa-a2d3-4c77d166d13a" name="FOP 1"/>
+                <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
+                    id="80913414-0d99-4232-9b2c-ad061994c0e7" name="FOP 2"/>
+                <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
+                    id="070ff4f4-7c8f-40e6-81d0-f90467776ced" targetElement="#4fe5973b-2f8f-4142-8e04-6caa4614bcbf"
+                    sourceElement="#85476ea5-1d03-4313-ac05-f4abbf6a4e1c"/>
+              </ownedFunctions>
+              <ownedFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"
+                  id="c1fd9118-37fe-443f-86a9-08d08fa46351" name="record transfer of task"
+                  summary="transfer owner of token">
+                <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
+                    id="3901dd6a-df00-47ef-ba11-6c8ecceeb7e4" name="FIP 2"/>
+                <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
+                    id="75c31b0d-f373-4436-bfcd-8abc0668dc6c" name="FOP 1"/>
+                <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
+                    id="6f77dcb9-25ea-421a-9e3f-528392761b71" name="FOP 2"/>
+                <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
+                    id="d0c3bde2-e09a-4575-b62c-287ddaad3f3a" targetElement="#722a5d43-cad6-418f-91cf-2bc7184cf484"
+                    sourceElement="#c1fd9118-37fe-443f-86a9-08d08fa46351"/>
+              </ownedFunctions>
+              <ownedFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"
+                  id="13b7ca29-3771-4aad-8939-8aa827daca29" name="create ros message to auction task">
+                <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
+                    id="9791a513-0c18-4a82-9dd8-3f615015ff13" name="FIP 1"/>
+                <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
+                    id="7195c083-c065-41d0-ae51-f4f7dcf0e0d1" name="outsend mission">
+                  <ownedPortRealizations xsi:type="org.polarsys.capella.core.data.information:PortRealization"
+                      id="b7f1f837-4f6b-4201-9cf0-d1a0ff5fcc8d" targetElement="#1e116b93-bc14-4a8b-8413-80ec3d9a3e7e"
+                      sourceElement="#7195c083-c065-41d0-ae51-f4f7dcf0e0d1"/>
+                </outputs>
+              </ownedFunctions>
+            </ownedFunctions>
             <ownedFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"
-                id="67d47674-0c2a-4577-aa56-e025c4e7e282" name="read info from blockchain"/>
+                id="67d47674-0c2a-4577-aa56-e025c4e7e282" name="read info from the blockchain"/>
             <ownedFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"
                 id="af8e7ccc-d9c8-477b-9831-8b197448e164" name="query the blockchain"/>
-            <ownedFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"
-                id="13b7ca29-3771-4aad-8939-8aa827daca29" name="create ros message">
-              <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
-                  id="9791a513-0c18-4a82-9dd8-3f615015ff13" name="FIP 1"/>
-              <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
-                  id="7195c083-c065-41d0-ae51-f4f7dcf0e0d1" name="outsend mission">
-                <ownedPortRealizations xsi:type="org.polarsys.capella.core.data.information:PortRealization"
-                    id="b7f1f837-4f6b-4201-9cf0-d1a0ff5fcc8d" targetElement="#1e116b93-bc14-4a8b-8413-80ec3d9a3e7e"
-                    sourceElement="#7195c083-c065-41d0-ae51-f4f7dcf0e0d1"/>
-              </outputs>
-            </ownedFunctions>
             <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
                 id="3e18213c-4d34-4c46-8b3c-4e2be87afc25" targetElement="#6bf31c65-7022-428c-af2e-bd4a702e7e76"
                 sourceElement="#3961ce29-de65-4280-bf4b-e02bdba018aa"/>
@@ -1998,16 +1995,6 @@
             <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
                 id="8e994283-3929-40c7-8710-d4b6f55c355b" name="display update signal"
                 target="#3048f1b7-8c23-4a09-a4c4-86d221d9e6c1" source="#75c31b0d-f373-4436-bfcd-8abc0668dc6c"/>
-            <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
-                id="f973b1c1-9f27-4682-9295-89b6df66ca39" name="signal" target="#525575b8-d0aa-4b8c-bede-64fee823efce"
-                source="#e004ed90-c5d0-452c-bba7-dae661335564"/>
-            <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
-                id="fa019d1b-96df-48bc-a58e-23ed1d258b06" name="task information"
-                target="#4d093f94-b825-4ed4-8827-914508fc230b" source="#bbe0c348-e0f5-4701-bb3a-08b5563232a7">
-              <ownedFunctionalExchangeRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchangeRealization"
-                  id="c941f657-7623-46a9-804e-3409b1c0a7d5" targetElement="#87e09fde-26c0-40bd-a3f6-636f9ad3aba7"
-                  sourceElement="#fa019d1b-96df-48bc-a58e-23ed1d258b06"/>
-            </ownedFunctionalExchanges>
           </ownedFunctions>
           <ownedFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"
               id="6d3ea89a-7c1d-49a1-96a9-6722441ca470" name="Trade">
@@ -2280,6 +2267,22 @@
             <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
                 id="1f7f010a-304c-4627-bbb6-15674225449c" name="FIP 1"/>
           </ownedFunctions>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"
+              id="71b70694-2d6b-4895-bbe3-1f21611ba517" name="create token">
+            <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
+                id="4d093f94-b825-4ed4-8827-914508fc230b" name="FIP 1">
+              <ownedPortRealizations xsi:type="org.polarsys.capella.core.data.information:PortRealization"
+                  id="01b9a137-6892-415c-8ee7-ff091a633a74" targetElement="#a603efd5-cf1b-4ee4-b71a-471709393bec"
+                  sourceElement="#4d093f94-b825-4ed4-8827-914508fc230b"/>
+            </inputs>
+            <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
+                id="e004ed90-c5d0-452c-bba7-dae661335564" name="FOP 2"/>
+            <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
+                id="b9e3c0de-2da7-403f-a781-1bcaba719c98" name="FOP 3"/>
+            <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
+                id="5c75b505-878c-4e75-82c7-16e735d8b454" targetElement="#c47b0629-6a22-457c-a88f-b2b479d43999"
+                sourceElement="#71b70694-2d6b-4895-bbe3-1f21611ba517"/>
+          </ownedFunctions>
           <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
               id="ced425e1-ca68-402e-87c0-bf744e09ca8b" targetElement="#98936124-3cbd-4115-9ad4-46b47db7ad75"
               sourceElement="#94452f1b-edc2-4a5e-80dc-ef633638f5a9"/>
@@ -2325,6 +2328,16 @@
           <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
               id="d664dec6-c0cd-4413-b375-3c14e3efc078" name="publish task to do"
               target="#27b1e297-b527-4780-a7f0-b579285e2577" source="#122932fc-ed16-46bf-9d09-b4a85c931916"/>
+          <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
+              id="fa019d1b-96df-48bc-a58e-23ed1d258b06" name="task information" target="#4d093f94-b825-4ed4-8827-914508fc230b"
+              source="#bbe0c348-e0f5-4701-bb3a-08b5563232a7">
+            <ownedFunctionalExchangeRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchangeRealization"
+                id="c941f657-7623-46a9-804e-3409b1c0a7d5" targetElement="#87e09fde-26c0-40bd-a3f6-636f9ad3aba7"
+                sourceElement="#fa019d1b-96df-48bc-a58e-23ed1d258b06"/>
+          </ownedFunctionalExchanges>
+          <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
+              id="f973b1c1-9f27-4682-9295-89b6df66ca39" name="signal" target="#525575b8-d0aa-4b8c-bede-64fee823efce"
+              source="#e004ed90-c5d0-452c-bba7-dae661335564"/>
         </ownedLogicalFunctions>
       </ownedFunctionPkg>
       <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.la:CapabilityRealizationPkg"
@@ -2339,7 +2352,7 @@
             <ownedInstanceRoles xsi:type="org.polarsys.capella.core.data.interaction:InstanceRole"
                 id="222824c1-92c3-4c06-bce5-9c0e6af2287a" name="bc_handler" representedInstance="#8d783e7f-bf50-497f-a74b-ddccad304aef"/>
             <ownedInstanceRoles xsi:type="org.polarsys.capella.core.data.interaction:InstanceRole"
-                id="2bdc7bd1-9c02-4ca4-a0db-532b4bae32b5" name="auctioner" representedInstance="#e2f524cd-e986-488b-b12d-3c68e9be8390"/>
+                id="2bdc7bd1-9c02-4ca4-a0db-532b4bae32b5" name="auctioneer" representedInstance="#e2f524cd-e986-488b-b12d-3c68e9be8390"/>
             <ownedInstanceRoles xsi:type="org.polarsys.capella.core.data.interaction:InstanceRole"
                 id="4b9016f0-5a3a-482c-8cf6-9fd80cefdac6" name="participant in auction"
                 representedInstance="#6fd51a19-7765-459a-8ad3-d3f0af556041"/>
@@ -3319,10 +3332,10 @@
               name="traderNode" abstractType="#705ea90f-c9f9-482f-b586-24ea63d340c6"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="0490d5d1-1f2a-47c0-b1ab-b414ff0f73d9"
               name="execNode" abstractType="#370ad9cb-7207-499a-9351-16d6a224ddc7"/>
-          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="4881af47-61e1-4a14-8a17-98704cda538d"
-              name="decisionNode" abstractType="#7f8a77fa-09e0-4088-8de5-7a13e6f5892c"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="8d783e7f-bf50-497f-a74b-ddccad304aef"
               name="bc_handler" abstractType="#3a72bd67-02c8-4e5c-b6aa-6f7137a3baf6"/>
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="4881af47-61e1-4a14-8a17-98704cda538d"
+              name="decisionNode" abstractType="#7f8a77fa-09e0-4088-8de5-7a13e6f5892c"/>
           <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
               id="b28714fd-1800-4737-af47-eb7e039c5fef" name="metricsNode">
             <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
@@ -3332,11 +3345,11 @@
           <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
               id="705ea90f-c9f9-482f-b586-24ea63d340c6" name="traderNode">
             <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="e2f524cd-e986-488b-b12d-3c68e9be8390"
-                name="auctioner" abstractType="#3ab25ca1-6c2f-4573-9ff4-c2627794b39c"/>
+                name="auctioneer" abstractType="#3ab25ca1-6c2f-4573-9ff4-c2627794b39c"/>
             <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="6fd51a19-7765-459a-8ad3-d3f0af556041"
                 name="participant in auction" abstractType="#2009aadc-2bdd-44cf-a090-f3cdc799dba2"/>
             <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
-                id="3ab25ca1-6c2f-4573-9ff4-c2627794b39c" name="auctioner">
+                id="3ab25ca1-6c2f-4573-9ff4-c2627794b39c" name="auctioneer">
               <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                   id="68332a7f-1d1f-47bd-a563-7c470db37fc3" targetElement="#e97f9efc-469c-4586-b05f-c71dbd84b2e7"
                   sourceElement="#3ab25ca1-6c2f-4573-9ff4-c2627794b39c"/>
@@ -3370,6 +3383,15 @@
                 sourceElement="#370ad9cb-7207-499a-9351-16d6a224ddc7"/>
           </ownedLogicalComponents>
           <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
+              id="3a72bd67-02c8-4e5c-b6aa-6f7137a3baf6" name="bc_handler">
+            <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+                id="861fe3ee-8115-4305-ad00-9f9665d9a7bd" targetElement="#68e95208-013f-4578-b9d3-41505de668c2"
+                sourceElement="#3a72bd67-02c8-4e5c-b6aa-6f7137a3baf6"/>
+            <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+                id="61e93a62-e29f-4c39-8b64-c8215e09baaf" targetElement="#6038720c-7390-4fac-834d-b2afdf3d4c3e"
+                sourceElement="#3a72bd67-02c8-4e5c-b6aa-6f7137a3baf6"/>
+          </ownedLogicalComponents>
+          <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
               id="7f8a77fa-09e0-4088-8de5-7a13e6f5892c" name="decisionNode">
             <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                 id="ed406cc8-141c-4143-8d6f-317b269fd43c" targetElement="#25f2a2e0-03bc-404b-829d-9297d77c7a94"
@@ -3380,15 +3402,6 @@
             <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
                 id="6abad765-b0d2-443a-99a7-0887e30776f7" targetElement="#5a1f250f-faf2-40ef-8199-86d90d1f8dc2"
                 sourceElement="#7f8a77fa-09e0-4088-8de5-7a13e6f5892c"/>
-          </ownedLogicalComponents>
-          <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
-              id="3a72bd67-02c8-4e5c-b6aa-6f7137a3baf6" name="bc_handler">
-            <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
-                id="861fe3ee-8115-4305-ad00-9f9665d9a7bd" targetElement="#68e95208-013f-4578-b9d3-41505de668c2"
-                sourceElement="#3a72bd67-02c8-4e5c-b6aa-6f7137a3baf6"/>
-            <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
-                id="61e93a62-e29f-4c39-8b64-c8215e09baaf" targetElement="#6038720c-7390-4fac-834d-b2afdf3d4c3e"
-                sourceElement="#3a72bd67-02c8-4e5c-b6aa-6f7137a3baf6"/>
           </ownedLogicalComponents>
         </ownedLogicalComponents>
         <ownedLogicalComponents xsi:type="org.polarsys.capella.core.data.la:LogicalComponent"
