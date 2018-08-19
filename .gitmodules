@@ -3,7 +3,7 @@
 	url = git@framagit.org:ant0ine/DissertationReport.git
 [submodule "DissertationROS_ws"]
 	path = DissertationROS_ws
-	url = git@framagit.org:ant0ine/DissertationROS_ws.git
+    url = git@framagit.org:openmarketrobots_blockchain/DissertationROS_ws.git
 [submodule "DissertationBlockchainInterface"]
 	path = DissertationBlockchainInterface
-	url = git@framagit.org:ant0ine/DissertationBlockchainInterface.git
+	url = git@framagit.org:openmarketrobots_blockchain/DissertationBlockchainInterface.git
